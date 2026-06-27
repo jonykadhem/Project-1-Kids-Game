@@ -1,0 +1,203 @@
+the project is kids game 
+
+the game will be aimed for kids to teach thim about alphabets, colors, animals and numbers + basic mathe. it will be very easy and simple, each section will show a random 5 simple questions about the category thay chose, it will have a reword system, if the user completed the 5 questions will git a trophy. And if the user gets 3 questions wrong it will show a message that thy lost and retray again and it will reset it with new questions. 
+
+
+pseudocode: 
+
+start with displaing welcome screen 
+
+display the four options :
+ 1- alphabets
+ 2- numbers 
+ 3- colors 
+ 4- animals
+
+wait for user to select an option 
+
+if user selects alphabets
+	desplay alphabets game
+else if user selects numbers 
+	desplay numbers game
+else if user slects colors 
+	desplay colors game
+else if user select animals 
+	desplay animals game 
+
+End IF 
+
+--------------------------------------------------------------------------------
+Alphabets Game 
+
+set scor to zero 
+
+set harts to three 
+
+load a random alphabet question 
+
+desplay: 
+	question 
+	three answers 
+
+if user selected the correct answer 
+	increase score by 1
+	desplay "correct 🎉🎊"
+	desplay button for next question
+
+else if user selects wronge answer 
+	increment harts by 1
+	desplay "incorrect 😢" 
+	desplay the correct answer
+end if 
+
+load the next question 
+
+repeat until all 5 questions answered
+
+if user answerd all correct 
+	desplay final score
+	desplay "congrats! you are a legend 😍"
+	desplay a button to go to main meniu
+else if all 3 harts finished 
+	desplay "game over"
+	desplay "you are a genius, try harder next time 💪"
+	desplay a button to try again	
+End IF
+
+-------------------------------------------------------
+Numbers Game 
+
+set scor to zero 
+
+set harts to three 
+
+load a random numbers or math question 
+
+desplay: 
+	question 
+	three answers
+
+if user selected the correct answer 
+	increase score by 1
+	desplay "correct 🎉🎊"
+	desplay button for next question
+
+else if user selects wronge answer 
+	increment harts by 1
+	desplay "incorrect 😢" 
+	desplay the correct answer
+end if 
+
+load the next question 
+
+repeat until all 5 questions answered
+
+if user answerd all correct 
+	desplay final score
+	desplay "congrats! you are a legend 😍"
+	desplay a button to go to main meniu
+else if all 3 harts finished 
+	desplay "game over"
+	desplay "you are a genius, try harder next time 💪"
+	desplay a button to try again	
+End IF
+
+---------------------------------------------------------------
+Colors Game 
+
+set scor to zero 
+
+set harts to three 
+
+load a random Color question 
+
+desplay: 
+	question 
+	three answers
+
+if user selected the correct answer 
+	increase score by 1
+	desplay "correct 🎉🎊"
+	desplay button for next question
+
+else if user selects wronge answer 
+	increment harts by 1
+	desplay "incorrect 😢" 
+	desplay the correct answer
+end if 
+
+load the next question 
+
+repeat until all 5 questions answered
+
+if user answerd all correct 
+	desplay final score
+	desplay "congrats! you are a legend 😍"
+	desplay a button to go to main meniu
+else if all 3 harts finished 
+	desplay "game over"
+	desplay "you are a genius, try harder next time 💪"
+	desplay a button to try again	
+End IF
+
+------------------------------------------------------------------
+Animals Game
+
+set scor to zero 
+
+set harts to three 
+
+load a random animal question 
+
+desplay: 
+	question 
+	three answers
+
+if user selected the correct answer 
+	increase score by 1
+	desplay "correct 🎉🎊"
+	desplay button for next question
+
+else if user selects wronge answer 
+	increment harts by 1
+	desplay "incorrect 😢" 
+	desplay the correct answer
+end if 
+
+load the next question 
+
+repeat until all 5 questions answered
+
+if user answerd all correct 
+	desplay final score
+	desplay "congrats! you are a legend 😍"
+	desplay a button to go to main meniu
+else if all 3 harts finished 
+	desplay "game over"
+	desplay "you are a genius, try harder next time 💪"
+	desplay a button to try again	
+End IF
+
+-----------------------------------------------------------------
+Main Menu
+
+desplay main menu
+
+while user has not exited 
+
+play kids musice
+
+  wait for butten click
+
+if user selects alphabets
+	open alphabets game
+else if user selects numbers 
+	open numbers game
+else if user slects colors 
+	open colors game
+else if user select animals 
+	open animals game 
+
+End IF 
+
+End While
