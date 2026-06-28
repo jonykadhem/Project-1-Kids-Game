@@ -26,178 +26,44 @@ else if user select animals
 
 End IF 
 
---------------------------------------------------------------------------------
-Alphabets Game 
+slect the category the user choased
 
-set scor to zero 
+set score to zero 
 
-set harts to three 
+set hart to 3
 
-load a random alphabet question 
+desplay random question and 3 answer choises
 
-desplay: 
-	question 
-	three answers 
+if user answers correct increas score by 1
 
-if user selected the correct answer 
-	increase score by 1
-	desplay "correct 🎉🎊"
-	desplay button for next question
+if user answer incorrect decreas harts by 1 
 
-else if user selects wronge answer 
-	increment harts by 1
-	desplay "incorrect 😢" 
-	desplay the correct answer
-end if 
+if user answoer all correct 
+	desplay "Great goob!! you are a LEGENED 😍🎉" 
 
-load the next question 
+if the 3 harts = 0 
+	desplay "Try harder next time 💪"
 
-repeat until all 5 questions answered
+return to main menu or try again
 
-if user answerd all correct 
-	desplay final score
-	desplay "congrats! you are a legend 😍"
-	desplay a button to go to main meniu
-else if all 3 harts finished 
-	desplay "game over"
-	desplay "you are a genius, try harder next time 💪"
-	desplay a button to try again	
-End IF
 
--------------------------------------------------------
-Numbers Game 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-set scor to zero 
+User Story 
 
-set harts to three 
 
-load a random numbers or math question 
-
-desplay: 
-	question 
-	three answers
-
-if user selected the correct answer 
-	increase score by 1
-	desplay "correct 🎉🎊"
-	desplay button for next question
-
-else if user selects wronge answer 
-	increment harts by 1
-	desplay "incorrect 😢" 
-	desplay the correct answer
-end if 
-
-load the next question 
-
-repeat until all 5 questions answered
-
-if user answerd all correct 
-	desplay final score
-	desplay "congrats! you are a legend 😍"
-	desplay a button to go to main meniu
-else if all 3 harts finished 
-	desplay "game over"
-	desplay "you are a genius, try harder next time 💪"
-	desplay a button to try again	
-End IF
-
----------------------------------------------------------------
-Colors Game 
-
-set scor to zero 
-
-set harts to three 
-
-load a random Color question 
-
-desplay: 
-	question 
-	three answers
-
-if user selected the correct answer 
-	increase score by 1
-	desplay "correct 🎉🎊"
-	desplay button for next question
-
-else if user selects wronge answer 
-	increment harts by 1
-	desplay "incorrect 😢" 
-	desplay the correct answer
-end if 
-
-load the next question 
-
-repeat until all 5 questions answered
-
-if user answerd all correct 
-	desplay final score
-	desplay "congrats! you are a legend 😍"
-	desplay a button to go to main meniu
-else if all 3 harts finished 
-	desplay "game over"
-	desplay "you are a genius, try harder next time 💪"
-	desplay a button to try again	
-End IF
-
-------------------------------------------------------------------
-Animals Game
-
-set scor to zero 
-
-set harts to three 
-
-load a random animal question 
-
-desplay: 
-	question 
-	three answers
-
-if user selected the correct answer 
-	increase score by 1
-	desplay "correct 🎉🎊"
-	desplay button for next question
-
-else if user selects wronge answer 
-	increment harts by 1
-	desplay "incorrect 😢" 
-	desplay the correct answer
-end if 
-
-load the next question 
-
-repeat until all 5 questions answered
-
-if user answerd all correct 
-	desplay final score
-	desplay "congrats! you are a legend 😍"
-	desplay a button to go to main meniu
-else if all 3 harts finished 
-	desplay "game over"
-	desplay "you are a genius, try harder next time 💪"
-	desplay a button to try again	
-End IF
-
------------------------------------------------------------------
-Main Menu
-
-desplay main menu
-
-while user has not exited 
-
-play kids musice
-
-  wait for butten click
-
-if user selects alphabets
-	open alphabets game
-else if user selects numbers 
-	open numbers game
-else if user slects colors 
-	open colors game
-else if user select animals 
-	open animals game 
-
-End IF 
-
-End While
+- as a chiled, i want to choose which category i want to learn 
+- as a chiled, i want large colorful buttens to chose the category i want 
+- as a chiled, I want easy questions to teach me about alphabets 
+- as a chiled, I want colorfull images to attract me to play the game
+- as a chiled, i want to be able to solve simple math questions so i can improve my counting and simple mathmatices skills
+- as a chiled, I want to have emogis and real life examples to make it easy to learn
+- as a chiled, I want to learn about colors names 
+- as a chiled, I want to learn about all of the colorfull colors
+- as a chiled, I want to learn about animals
+- as a chiled, I want to learn the names of animals
+- as a chiled, I want to know what animals sounds like
+- as a chiled, i want immediate feedback so that i know if i ansored correct
+- as a chiled, i want to know the correct answer if I answered wrong 
+- as a chiled, I want to get a prize if i finesh a game
+- as a chiled, I want to replay the games again 
