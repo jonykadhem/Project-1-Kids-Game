@@ -1,0 +1,44 @@
+#mainMenu{
+    display: flex;
+    background-color: rgb(252, 252, 142);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#categoryBtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.categ{
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px lightblue solid;
+    background-color: lightgoldenrodyellow;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+.categ:hover{
+    background-color: aquamarine;
+    pointer-events: painted;
+}
+#alphaBody{
+    display: flex;
+    background-color: rgb(252, 142, 149);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#alphaHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 1000px;
+}
