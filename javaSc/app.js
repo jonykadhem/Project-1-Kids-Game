@@ -16,8 +16,11 @@ const quesiton = document.querySelector('#quesiton')
 const answerDiv = document.querySelector('#answers')
 const startBtn = document.querySelector('#start')
 const answerp = document.createElement('p')
-
+const startH1 = document.createElement('h1')
+const alphaBody = document.querySelector('#alphaBody')
 /*----------------------------- Event Listeners -----------------------------*/
+startH1.textContent = 'Are You Ready !!!!!'
+alphaBody.append(startH1)
 startBtn.addEventListener('click',function (event) {
     randomQuest = Math.floor(Math.random()*2)
     console.log(randomQuest)
@@ -25,10 +28,14 @@ startBtn.addEventListener('click',function (event) {
     // answerp.textContent = 
     answerOptions(alphaQuestArr[randomQuest].options)
     // answerDiv.append(answerp)
-    event.target.remove()
+    event.target.remove(startBtn)
+    
     
 })
 /*-------------------------------- Functions --------------------------------*/
+startBtn.classList = 'start'
+
+
 // function for the options button
 function answerOptions(options) {
     // console.log(options)
