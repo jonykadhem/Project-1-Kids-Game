@@ -1,3 +1,5 @@
+/* -------------------body---------------------- */
+
 #mainMenu{
     display: flex;
     background-color: rgb(252, 252, 142);
@@ -5,15 +7,31 @@
     justify-content: center;
     align-items: center;
 }
+#alphaBody{
+    display: flex;
+    /* background-image:url('../assets/alphas 2.jpg') ; */
+    background-position: center;
+    /* height: 700px; */
+    background-size:cover;
+    background-repeat: no-repeat;
+    position: relative;
+    background-color: rgba(252, 142, 149, 0.429);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ------------------buttons---------------- */
 #categoryBtn{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 50px;
     
 }
 .categ{
-    margin-top: 20px;
+    /* margin: 20px; */
     font-size: 20px;
     padding: 20px;
     border-radius: 10px;
@@ -26,19 +44,19 @@ a{
 }
 .categ:hover{
     background-color: aquamarine;
-    pointer-events: painted;
+    cursor: pointer;
 }
-#alphaBody{
-    display: flex;
-    background-color: rgb(252, 142, 149);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+
+
 #alphaHeader{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     width: 1000px;
+}
+#answers{
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
 }
