@@ -8,6 +8,8 @@ const alphaQuestArr = [{quist:'What is the first letter in the Alphabets', answe
 const numQuestArr = []
 const colorQuestArr = []
 const animleQuestArr = []
+let usedQuestions = []
+let currentQuest = []
 let countScore = 0
 let countHeart = 0
 let countQuestions = 0
@@ -32,9 +34,6 @@ const popupTitle = document.querySelector("#popupTitle");
 
 
 
-nextQuist.textContent = 'Next'
-nextQuist.style.display = 'none'
-alphaBody.append(nextQuist)
 
 startH1.textContent = 'Are You Ready !!!!!'
 alphaBody.append(startH1)
@@ -60,20 +59,27 @@ function startGame() {
 
 // 
 function randomIndx() {
+    if (usedQuestions.length === alphaQuestArr.length) {
+        return null
+    }
+
      do{
-        randomQuest = Math.floor(Math.random()*2)
+        randomQuest = Math.floor(Math.random()*alphaQuestArr.length)
 
     }while (randomQuest === previousQuist) 
-        previousQuist = randomQuest
-    }
-    randomQuest = randomIndx()
-    function loadQuestion() {
+        usedQuestions.push(randomQuest)
+        return randomQuest
+}
+    // randomQuest = randomIndx()
+
+function loadQuestion() {
     
-        // randomQuest = randomIndx()
-        randomIndx()
+        randomQuest = randomIndx()
+        // randomIndx()
         quesiton.textContent = alphaQuestArr[randomQuest].quist
+        answerDiv.innerHTML = ''
         answerOptions(alphaQuestArr[randomQuest].options)
-    }
+}
 
 
 
@@ -99,6 +105,8 @@ function answerOptions(options) {
                 countHeart --
             }
             countQuestions +=1
+            updatGameStatus()
+            
             popup.classList.remove('hidden')
             const button = document.querySelectorAll('.options-btn')
             button.forEach(button => {
@@ -110,9 +118,7 @@ function answerOptions(options) {
         
     });
 
-    score.textContent = `⭐ ${countScore}`
-    heart.textContent = `❤ ${countHeart}`
-    noQuest.textContent = `⁉ ${countQuestions}/5`
+    
     // console.log(countHeart,countScore)
 }   
 
@@ -129,14 +135,16 @@ function nextQuestion() {
     })
 }
 nextQuestion()
+
+
 function gameFinishing() {
   if (countQuestions === 5 && countHeart > 0) {
     popupMessage.textContent = 'you finished the game '
-    nextQuestion().remove
+    nextQuist.remove()
     // answerDiv.append(winOrlosep)
     // console.log('finish')
 }else if (countHeart <= 0) {
-    quesiton.disabled = true
+    answerDiv.innerHTML = ''
     const button = document.querySelectorAll('.options-btn')
      button.forEach(button => {
                 button.disabled = true
@@ -145,4 +153,13 @@ function gameFinishing() {
     // answerDiv.append(winOrlosep)
 
   }
+}
+
+////////////////////////////////////////////////////////
+//updating game status
+
+function updatGameStatus(params) {
+    score.textContent = `⭐ ${countScore}`
+    heart.textContent = `❤ ${countHeart}`
+    noQuest.textContent = `⁉ ${countQuestions}/5`
 }
