@@ -48,7 +48,9 @@ a{
     transform: translateY(-5px); 
     box-shadow: 2px 5px 5px ; 
 }
-
+.options-btn{
+    
+}
 
 #alphaHeader{
     display: flex;

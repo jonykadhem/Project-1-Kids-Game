@@ -1,6 +1,6 @@
 /*-------------------------------- Constants --------------------------------*/
 let randomQuest = 0
-
+// const alphaQuestArr = require('./data.js')
 /*-------------------------------- Variables --------------------------------*/
 const alphaQuestArr = [{quist:'What is the first letter in the Alphabets', answer:'A', options:['A', 'B', 'C']},
     {quist:'What word starts with the letter "A"',answer:'Apple', options:['Melon', 'Apple','Barry']}
@@ -10,6 +10,7 @@ const colorQuestArr = []
 const animleQuestArr = []
 let countScore = 0
 let countHeart = 0
+let countQuestions = 0
 let previousQuist = -1
 
 /*------------------------ Cached Element References ------------------------*/
@@ -23,7 +24,7 @@ const startBtn = document.querySelector('#start')
 const answerp = document.createElement('p')
 const alphaBody = document.querySelector('#alphaBody')
 const winOrlosep = document.createElement('p')
-const nextQuist = document.createElement('button')
+const nextQuist = document.querySelector('#popupBtn')
 const tryagain = document.createElement('button')
 
 
@@ -33,22 +34,27 @@ alphaBody.append(nextQuist)
 
 startH1.textContent = 'Are You Ready !!!!!'
 alphaBody.append(startH1)
-
-
-startBtn.addEventListener('click',function (event) {
-    // console.log(previousQuist)
-    countHeart = 3
-    countScore = 0
-    // answerp.textContent = 
+startGame()
+//start button
+function startGame() {
     
-    // answerDiv.append(answerp)
-    event.target.remove()
-    startH1.remove()
-    loadQuestion()
-    
-})
-startBtn.classList = 'start'
+    startBtn.addEventListener('click',function (event) {
+        // console.log(previousQuist)
+        countHeart = 3
+        countScore = 0
+        countQuestions = 0
+        // answerp.textContent = 
+        
+        // answerDiv.append(answerp)
+        event.target.remove()
+        startH1.remove()
+        loadQuestion()
+        
+    })
+}
+    startBtn.classList = 'start'
 
+// 
 function randomIndx() {
      do{
         randomQuest = Math.floor(Math.random()*2)
@@ -86,6 +92,7 @@ function answerOptions(options) {
                 answerDiv.append(winOrlosep)
                 countHeart --
             }
+            countQuestions +=1
             const button = document.querySelectorAll('.options-btn')
             button.forEach(button => {
                 button.disabled = true
@@ -98,8 +105,11 @@ function answerOptions(options) {
 
     score.textContent = `⭐ ${countScore}`
     heart.textContent = `❤ ${countHeart}`
+    noQuest.textContent = `⁉ ${countQuestions}/5`
     // console.log(countHeart,countScore)
 }   
+
+//next question button method to load the next question
 function nextQuestion() {
     nextQuist.addEventListener('click', function (event) {
         answerDiv.innerHTML=''
@@ -107,8 +117,18 @@ function nextQuestion() {
         nextQuist.style.display = 'none'
         
         loadQuestion()
-        console.log("im working")
-        
+        gameFinishing()
     })
 }
 nextQuestion()
+function gameFinishing() {
+  if (countQuestions === 5 && countHeart > 0) {
+    winOrlosep.textContent = 'you finished the game '
+    answerDiv.append(winOrlosep)
+    // console.log('finish')
+}else if (countHeart <= 0) {
+    quesiton.disabled = true
+    const button = document.querySelectorAll('.options-btn')
+    winOrlosep.textContent = 'you lost ideot'
+  }
+}
