@@ -23,9 +23,13 @@ const startH1 = document.createElement('h1')
 const startBtn = document.querySelector('#start')
 const answerp = document.createElement('p')
 const alphaBody = document.querySelector('#alphaBody')
-const winOrlosep = document.createElement('p')
+const winOrlosep = document.querySelector('#popupP')
 const nextQuist = document.querySelector('#popupBtn')
 const tryagain = document.createElement('button')
+const popup = document.querySelector("#popup");
+const popupTitle = document.querySelector("#popupTitle");
+
+
 
 
 nextQuist.textContent = 'Next'
@@ -129,6 +133,11 @@ function gameFinishing() {
 }else if (countHeart <= 0) {
     quesiton.disabled = true
     const button = document.querySelectorAll('.options-btn')
+     button.forEach(button => {
+                button.disabled = true
+            })
     winOrlosep.textContent = 'you lost ideot'
+    answerDiv.append(winOrlosep)
+
   }
 }
