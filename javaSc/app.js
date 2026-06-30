@@ -2,18 +2,25 @@
 let randomQuest = 0
 // const alphaQuestArr = require('./data.js')
 /*-------------------------------- Variables --------------------------------*/
-const alphaQuestArr = [{quist:'What is the first letter in the Alphabets', answer:'A', options:['A', 'B', 'C']},
-    {quist:'What word starts with the letter "A"',answer:'Apple', options:['Melon', 'Apple','Barry']}
-]
-const numQuestArr = []
-const colorQuestArr = []
-const animleQuestArr = []
-let usedQuestions = []
-let currentQuest = []
-let countScore = 0
-let countHeart = 0
-let countQuestions = 0
-let previousQuist = -1
+// const alphaQuestArr = [{quist:'What is the first letter in the Alphabets', answer:'A', options:['A', 'B', 'C']},
+//     {quist:'What word starts with the letter "A"',answer:'Apple', options:['Melon', 'Apple','Barry']}
+// ]
+// const numQuestArr = []
+// const colorQuestArr = []
+// const animalQuestArr = []
+const game = {
+    score: 0,
+    heart: 3,
+    quiestNumber: 0,
+    usedQuestions: [],
+    currentQuest: []
+}
+// let usedQuestions = []
+// let currentQuest = []
+// let countScore = 0
+// let countHeart = 0
+// let countQuestions = 0
+// let previousQuist = -1
 
 /*------------------------ Cached Element References ------------------------*/
 const score = document.querySelector('#score')
@@ -21,7 +28,7 @@ const noQuest = document.querySelector('#noOfQuestions')
 const heart = document.querySelector('#hearts')
 const quesiton = document.querySelector('#quesiton')
 const answerDiv = document.querySelector('#answers')
-const startH1 = document.createElement('h1')
+const startH1 = document.querySelector('#startH1')
 const startBtn = document.querySelector('#start')
 const answerp = document.createElement('p')
 const alphaBody = document.querySelector('#alphaBody')
@@ -32,22 +39,23 @@ const popup = document.querySelector("#popup");
 const popupTitle = document.querySelector("#popupTitle");
 
 
+// game.currentQuest=alphaQuestArr
 
 
 
-startH1.textContent = 'Are You Ready !!!!!'
-alphaBody.append(startH1)
+
 startGame()
 //start button
 function startGame() {
     
     startBtn.addEventListener('click',function (event) {
         // console.log(previousQuist)
-        countHeart = 3
-        countScore = 0
-        countQuestions = 0
+        game.heart = 3
+        game.score = 0
+        game.quiestNumber = 0
+        game.usedQuestions = []
         // answerp.textContent = 
-        
+        updatGameStatus()
         // answerDiv.append(answerp)
         event.target.remove()
         startH1.remove()
@@ -55,19 +63,19 @@ function startGame() {
         
     })
 }
-    startBtn.classList = 'start'
+    // startBtn.classList = 'start'
 
 // 
 function randomIndx() {
-    if (usedQuestions.length === alphaQuestArr.length) {
+    if (game.usedQuestions.length === game.currentQuest.length) {
         return null
     }
 
      do{
-        randomQuest = Math.floor(Math.random()*alphaQuestArr.length)
+        randomQuest = Math.floor(Math.random()*game.currentQuest.length)
 
-    }while (randomQuest === previousQuist) 
-        usedQuestions.push(randomQuest)
+    }while (game.usedQuestions.includes(randomQuest)) 
+        game.usedQuestions.push(randomQuest)
         return randomQuest
 }
     // randomQuest = randomIndx()
@@ -76,9 +84,9 @@ function loadQuestion() {
     
         randomQuest = randomIndx()
         // randomIndx()
-        quesiton.textContent = alphaQuestArr[randomQuest].quist
+        quesiton.textContent = game.currentQuest[randomQuest].question
         answerDiv.innerHTML = ''
-        answerOptions(alphaQuestArr[randomQuest].options)
+        answerOptions(game.currentQuest[randomQuest].options)
 }
 
 
@@ -93,18 +101,18 @@ function answerOptions(options) {
         answerDiv.appendChild(optionBtn)
         optionBtn.classList = 'options-btn'       
         optionBtn.addEventListener('click', function () {
-            if (element === alphaQuestArr[randomQuest].answer) {
+            if (element === game.currentQuest[randomQuest].answer) {
                 popupTitle.textContent= 'correct🎉'
                 popupMessage.textContent = 'Great Jop! keep going 💪😍'
                 // answerDiv.append(winOrlosep)
-                countScore += 1
+                game.score += 1
             }else{
                 popupTitle.textContent= `incorrect😢.`
-                popupMessage.textContent = ` the correct answer is ${alphaQuestArr[randomQuest].answer}`
+                popupMessage.textContent = ` the correct answer is ${game.currentQuest[randomQuest].answer}`
                 // answerDiv.append(winOrlosep)
-                countHeart --
+                game.heart --
             }
-            countQuestions +=1
+            game.quiestNumber +=1
             updatGameStatus()
             
             popup.classList.remove('hidden')
@@ -112,6 +120,7 @@ function answerOptions(options) {
             button.forEach(button => {
                 button.disabled = true
             })
+            
         nextQuist.style.display = 'block'
 
         })
@@ -123,43 +132,52 @@ function answerOptions(options) {
 }   
 
 //next question button method to load the next question
-function nextQuestion() {
+
     nextQuist.addEventListener('click', function (event) {
         answerDiv.innerHTML=''
         popupMessage.textContent = ''
         nextQuist.style.display = 'none'
+        if (gameFinishing()) {
+            return
+        }
         loadQuestion()
-        gameFinishing()
         popup.classList.add("hidden")
         console.log(popup.className)
     })
-}
-nextQuestion()
+
+
 
 
 function gameFinishing() {
-  if (countQuestions === 5 && countHeart > 0) {
-    popupMessage.textContent = 'you finished the game '
-    nextQuist.remove()
-    // answerDiv.append(winOrlosep)
-    // console.log('finish')
-}else if (countHeart <= 0) {
+  if (game.heart <= 0) {
     answerDiv.innerHTML = ''
     const button = document.querySelectorAll('.options-btn')
      button.forEach(button => {
                 button.disabled = true
             })
+            quesiton.style.display = 'none'
     popupMessage.textContent = 'you lost ideot'
+    return true
+    
+}
+ if (game.quiestNumber === 5 ) {
+    popupMessage.textContent = 'you finished the game '
+    nextQuist.remove()
+    quesiton.style.display = 'none'
     // answerDiv.append(winOrlosep)
+    // console.log('finish')
+    // answerDiv.append(winOrlosep)
+    return true
 
   }
+  return false
 }
 
 ////////////////////////////////////////////////////////
 //updating game status
 
 function updatGameStatus(params) {
-    score.textContent = `⭐ ${countScore}`
-    heart.textContent = `❤ ${countHeart}`
-    noQuest.textContent = `⁉ ${countQuestions}/5`
+    score.textContent = `⭐ ${game.score}`
+    heart.textContent = `❤ ${game.heart}`
+    noQuest.textContent = `⁉ ${game.quiestNumber}/5`
 }
