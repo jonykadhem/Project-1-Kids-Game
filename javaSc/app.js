@@ -23,7 +23,7 @@ const startH1 = document.createElement('h1')
 const startBtn = document.querySelector('#start')
 const answerp = document.createElement('p')
 const alphaBody = document.querySelector('#alphaBody')
-const winOrlosep = document.querySelector('#popupP')
+const popupMessage = document.querySelector('#popupP')
 const nextQuist = document.querySelector('#popupBtn')
 const tryagain = document.createElement('button')
 const popup = document.querySelector("#popup");
@@ -87,16 +87,19 @@ function answerOptions(options) {
         answerDiv.appendChild(optionBtn)
         optionBtn.classList = 'options-btn'       
         optionBtn.addEventListener('click', function () {
-            if (optionBtn.innerText === alphaQuestArr[randomQuest].answer) {
-                winOrlosep.textContent= 'correct🎉, keep going 💪😍'
-                answerDiv.append(winOrlosep)
+            if (element === alphaQuestArr[randomQuest].answer) {
+                popupTitle.textContent= 'correct🎉'
+                popupMessage.textContent = 'Great Jop! keep going 💪😍'
+                // answerDiv.append(winOrlosep)
                 countScore += 1
             }else{
-                winOrlosep.textContent= `incorrect😢. the correct answer is ${alphaQuestArr[randomQuest].answer}`
-                answerDiv.append(winOrlosep)
+                popupTitle.textContent= `incorrect😢.`
+                popupMessage.textContent = ` the correct answer is ${alphaQuestArr[randomQuest].answer}`
+                // answerDiv.append(winOrlosep)
                 countHeart --
             }
             countQuestions +=1
+            popup.classList.remove('hidden')
             const button = document.querySelectorAll('.options-btn')
             button.forEach(button => {
                 button.disabled = true
@@ -117,18 +120,20 @@ function answerOptions(options) {
 function nextQuestion() {
     nextQuist.addEventListener('click', function (event) {
         answerDiv.innerHTML=''
-        winOrlosep.textContent = ''
+        popupMessage.textContent = ''
         nextQuist.style.display = 'none'
-        
         loadQuestion()
         gameFinishing()
+        popup.classList.add("hidden")
+        console.log(popup.className)
     })
 }
 nextQuestion()
 function gameFinishing() {
   if (countQuestions === 5 && countHeart > 0) {
-    winOrlosep.textContent = 'you finished the game '
-    answerDiv.append(winOrlosep)
+    popupMessage.textContent = 'you finished the game '
+    nextQuestion().remove
+    // answerDiv.append(winOrlosep)
     // console.log('finish')
 }else if (countHeart <= 0) {
     quesiton.disabled = true
@@ -136,8 +141,8 @@ function gameFinishing() {
      button.forEach(button => {
                 button.disabled = true
             })
-    winOrlosep.textContent = 'you lost ideot'
-    answerDiv.append(winOrlosep)
+    popupMessage.textContent = 'you lost ideot'
+    // answerDiv.append(winOrlosep)
 
   }
 }
