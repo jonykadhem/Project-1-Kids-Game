@@ -26,37 +26,46 @@ const winOrlosep = document.createElement('p')
 const nextQuist = document.createElement('button')
 const tryagain = document.createElement('button')
 
-/*----------------------------- Event Listeners -----------------------------*/
+
 nextQuist.textContent = 'Next'
 nextQuist.style.display = 'none'
 alphaBody.append(nextQuist)
 
 startH1.textContent = 'Are You Ready !!!!!'
 alphaBody.append(startH1)
-startBtn.addEventListener('click',function (event) {
-    do{
-        randomQuest = Math.floor(Math.random()*2)
 
-    }while (randomQuest === previousQuist) 
-    previousQuist = randomQuest
-    console.log(randomQuest)
-    quesiton.textContent = alphaQuestArr[randomQuest].quist
+
+startBtn.addEventListener('click',function (event) {
+    // console.log(previousQuist)
     countHeart = 3
     countScore = 0
     // answerp.textContent = 
-    answerOptions(alphaQuestArr[randomQuest].options)
+    
     // answerDiv.append(answerp)
     event.target.remove()
     startH1.remove()
+    loadQuestion()
     
 })
 startBtn.classList = 'start'
 
-/*-------------------------------- Functions --------------------------------*/
-// function randomIndx() {
+function randomIndx() {
+     do{
+        randomQuest = Math.floor(Math.random()*2)
+
+    }while (randomQuest === previousQuist) 
+        previousQuist = randomQuest
+    }
+    randomQuest = randomIndx()
+    function loadQuestion() {
     
-// }
-// randomQuest = randomIndx()
+        // randomQuest = randomIndx()
+        randomIndx()
+        quesiton.textContent = alphaQuestArr[randomQuest].quist
+        answerOptions(alphaQuestArr[randomQuest].options)
+    }
+
+
 
 // function for the options button
 function answerOptions(options) {
@@ -90,12 +99,16 @@ function answerOptions(options) {
     score.textContent = `⭐ ${countScore}`
     heart.textContent = `❤ ${countHeart}`
     // console.log(countHeart,countScore)
-    
-}
-
+}   
 function nextQuestion() {
-    nextQuist.addEventListener('click', function (next) {
-        quesiton.textContent = ''
-        optionBtn=''
+    nextQuist.addEventListener('click', function (event) {
+        answerDiv.innerHTML=''
+        winOrlosep.textContent = ''
+        nextQuist.style.display = 'none'
+        
+        loadQuestion()
+        console.log("im working")
+        
     })
 }
+nextQuestion()
