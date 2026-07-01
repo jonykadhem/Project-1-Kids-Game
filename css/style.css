@@ -1,3 +1,6 @@
+/*--------------------fonts------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Luckiest+Guy&display=swap');
+
 /*-------------------header-------------------------*/
 
 #alphaHeader{
@@ -34,6 +37,7 @@
 /* -------------------body---------------------- */
 
 #mainMenu{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     display: flex;
     background-color: rgb(252, 252, 142);
     flex-direction: column;
@@ -41,6 +45,7 @@
     align-items: center;
 }
 #alphaBody{
+    font-family: "Luckiest Guy", cursive;
     display: flex;
     
     background-image:linear-gradient(rgba(252, 142, 149, 0.5),
@@ -79,7 +84,7 @@
     
     background-image:linear-gradient(rgba(252, 142, 149, 0.429),
     rgba(252, 142, 149, 0.429)),
-     url('../assets/alphas 2.jpg') ;
+     url('../assets/animals 1.jpg') ;
     background-position: center;
     /* height: 700px; */
     background-size:cover;
@@ -93,11 +98,15 @@
 }
 #colorBody{
      display: flex;
-    /* background-image:url('../assets/alphas 2.jpg') ; */
+    
+    background-image:linear-gradient(rgba(252, 142, 149, 0.429),
+    rgba(252, 142, 149, 0.429)),
+     url('../assets/colors 2.jpg') ;
     background-position: center;
     /* height: 700px; */
     background-size:cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     position: relative;
     background-color: rgba(252, 142, 149, 0.429);
     flex-direction: column;
