@@ -1,3 +1,36 @@
+/*-------------------header-------------------------*/
+
+#alphaHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 1000px;
+}
+#animalHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 1000px;
+}
+#colorHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 1000px;
+}
+#numberHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 1000px;
+}
+
+
+
 /* -------------------body---------------------- */
 
 #mainMenu{
@@ -9,11 +42,32 @@
 }
 #alphaBody{
     display: flex;
-    /* background-image:url('../assets/alphas 2.jpg') ; */
+    
+    background-image:linear-gradient(rgba(252, 142, 149, 0.5),
+    rgba(252, 142, 149, 0.5)),
+     url('../assets/alphas 1.jpg') ;
     background-position: center;
     /* height: 700px; */
     background-size:cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    background-color: rgba(252, 142, 149, 0.429);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#numberBody{
+    display: flex;
+    
+    background-image:linear-gradient(rgba(170, 123, 241, 0.539),
+    rgba(123, 133, 241, 0.395)),
+     url('../assets/numbers 1.jpg') ;
+    background-position: center;
+    /* height: 700px; */
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     position: relative;
     background-color: rgba(252, 142, 149, 0.429);
     flex-direction: column;
@@ -21,6 +75,23 @@
     align-items: center;
 }
 #animalBody{
+      display: flex;
+    
+    background-image:linear-gradient(rgba(252, 142, 149, 0.429),
+    rgba(252, 142, 149, 0.429)),
+     url('../assets/alphas 2.jpg') ;
+    background-position: center;
+    /* height: 700px; */
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    background-color: rgba(252, 142, 149, 0.429);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#colorBody{
      display: flex;
     /* background-image:url('../assets/alphas 2.jpg') ; */
     background-position: center;
@@ -62,20 +133,7 @@ a{
     font-size: 15px;
 }
 
-#alphaHeader{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 1000px;
-}
-#animalHeader{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 1000px;
-}
+
 #answers{
     justify-content: center;
     align-items: center;
@@ -116,9 +174,9 @@ a{
     position: fixed;
     top:0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0,0.5);
+    width: 50%;
+    height: 50%;
+    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -134,14 +192,14 @@ a{
     border-radius: 20px;
     text-align: center;
     width: 300px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgb(229, 49, 49);
 }
 
 .popup-content button{
     margin-top: 20px;
     padding: 10px 25px;
     font-size: 18px;
-    border: none;
+    border: 7px;
     border-radius: 10px;
     cursor: pointer;
 }
