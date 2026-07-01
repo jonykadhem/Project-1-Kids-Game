@@ -96,11 +96,13 @@ function answerOptions(options) {
                 popupMessage.textContent = 'Great Jop! keep going 💪😍'
                 // answerDiv.append(winOrlosep)
                 game.score += 1
+                optionBtn.classList.add("correct");
             } else {
                 popupTitle.textContent = `incorrect😢.`
                 popupMessage.textContent = ` the correct answer is ${game.currentQuest[randomQuest].answer}`
                 // answerDiv.append(winOrlosep)
                 game.heart--
+                optionBtn.classList.add("incorrect");
             }
             game.quiestNumber += 1
             updatGameStatus()
@@ -140,6 +142,7 @@ nextQuist.addEventListener('click', function (event) {
 
 function gameFinishing() {
     if (game.heart <= 0) {
+        quesiton.textContent = ''
         answerDiv.innerHTML = ''
         const button = document.querySelectorAll('.options-btn')
         button.forEach(button => {
@@ -151,6 +154,7 @@ function gameFinishing() {
         popupTitle.textContent = 'Game Over 😭😭'
         popupMessage.textContent = 'you lost ideot'
         return true
+        
 
     }
     if (game.quiestNumber === 5) {
@@ -158,6 +162,8 @@ function gameFinishing() {
         popupMessage.textContent = 'you finished it, you are a leganed '
         tryAgainBtn.classList.remove('hidden')
         mainMenuBtn.classList.remove('hidden')
+        quesiton.textContent = ''
+        answerDiv.innerHTML = ''
         // nextQuist.remove()
         // quesiton.style.display = 'none'
         // answerDiv.append(winOrlosep)
